@@ -2,11 +2,14 @@
 A car that can control from the whatsapp messages
 
 <br>
-<i>
-L293D motor driver is use for motor control
-<br>
-Pins of Rasberry Pi are mention in car/rpi.py file
-</i>
+<h3>Information to run the project</h3>
+<ul>
+	<li>L293D motor driver is use for motor control</li>
+	<li>Pins of Rasberry Pi are mention in car/rpi.py file</li>
+	<li>Nodejs based server</li>
+	<li>Install package by command <b>npm install</b></li>
+	<li>Start server by command <b>npm start</b></li>
+</ul>
 <br>
 <b>Changes needs before use</b>
 <ul>
