@@ -1,12 +1,6 @@
 # WC-Car
 A car that can control from the whatsapp messages
 
-<b>Car image</b>
-<br>
-<img src="./images/car.png" >
-<br>
-<b>Order & response</b>
-<img src="./images/chat.jpg">
 <br>
 <i>
 L293D motor driver is use for motor control
@@ -25,5 +19,14 @@ Pins of Rasberry Pi are mention in car/rpi.py file
 </ul>
 <br>
 <b>Improvments :--</b>
-We can integrate this project with Dialog Flow(by Google) for more 
+<br>We can integrate this project with Dialog Flow(by Google) for more 
 feature & conversation.
+<br>
+<h3>Work Sample</h3>
+<b>Car image</b>
+<br>
+<img src="./images/car.png" />
+<br>
+<b>Order & response</b>
+<br>
+<img src="./images/chat.jpg" />
