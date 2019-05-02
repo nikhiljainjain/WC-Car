@@ -37,7 +37,9 @@ var way = 0;
 var chng = 0;
 
 app.get('/', (req, res, next)=>{
-	res.status(200).send("Happy Hacking");
+	console.log(accountSid);
+	console.log(authToken);
+	res.status(200).send(`Happy Hacking\n${accountSid}\n${authToken}\n`);
 });
 
 //router for whatsapp messages 
