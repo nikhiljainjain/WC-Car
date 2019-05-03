@@ -80,11 +80,18 @@ def right(sec):
 while (True):
     do_x = send()
     if (do_x == 2):
+        print('Going forward')
         forward(sec)
     elif (do_x == 8):
+        print('Going backward')
         reverse(sec)
     elif (do_x == 4):
+        print('Rotating towards Left')
         left(sec)
     elif (do_x == 6):
+        print('Rotating towards Right')
         right(sec)
+    elif (do_x == 5):
+        print('Stopped')
+        sleep(sec)
     sleep(1)
