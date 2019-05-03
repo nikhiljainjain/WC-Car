@@ -28,19 +28,20 @@ const ctrl = {
 };
 
 var data = {
-    ir: 0, 
-    ultra: 0, 
+    ir: 0,
+    ultra: 0,
     btn:2
 };
 
 var way = 0;
 var chng = 0;
+var twilioStatus = null;
 
 app.get('/', (req, res, next)=>{
-	res.status(200).send(`Happy Hacking`);
+	res.status(200).json({msg: `Happy Hacking`, twilio_status: twilioStatus});
 });
 
-//router for whatsapp messages 
+//router for whatsapp messages
 app.post('/back',(req,res)=>{
     const temp = req.body.Body;
     data.btn = ctrl[temp];
@@ -51,13 +52,18 @@ app.post('/back',(req,res)=>{
 	        to: 'whatsapp:+918930154773'
 	      })
 	      .then(message => console.log(message.body))
-	      .done();      
+	      .done();
+    res.status(200).send();
 });
 
 app.post("/rpi", (req,res)=>{
-  res.json(data);
+  res.status(200).json(data);
 });
 
+app.post('/status', (req, res)=>{
+    twilioStatus = req.body;
+    res.status(200).send();
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
