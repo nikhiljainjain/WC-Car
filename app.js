@@ -47,7 +47,7 @@ app.post('/back',(req,res)=>{
     data.btn = ctrl[temp];
 	client.messages
 	      .create({
-	        body: `${temp} is set\nHAPPY HACKING\n:)`,
+	        body: `${temp} is set`,
 	        from: 'whatsapp:+14155238886',
 	        to: 'whatsapp:+918930154773'
 	      })
