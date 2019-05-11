@@ -51,7 +51,7 @@ app.post('/back',(req,res)=>{
 	        from: 'whatsapp:+14155238886',
 	        to: 'whatsapp:+918930154773'
 	      })
-	      .then(message => console.log(message.body))
+	      .then(message => console.log(message))
 	      .done();
     res.status(200).send();
 });
