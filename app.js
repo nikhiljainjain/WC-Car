@@ -20,8 +20,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const ctrl = {
-  'Up': 2,
-  'Down' : 8,
+  'Forward': 2,
+  'Backward' : 8,
   'Left' : 4,
   'Right' : 6,
   'Stop' : 5
@@ -45,10 +45,17 @@ app.get('/', (req, res, next)=>{
 app.post('/back',(req,res)=>{
     console.log(req.body);
     const temp = req.body.Body;
+    let msg;
+    if (temp == 'Forward' || temp == 'Backward')
+	msg = `I am going in ${temp} direction`;
+    else if (temp == 'Left' || temp == 'Right')
+	msg = `I am turning in ${temp} direction`;
+    else 
+        msg = 'I am waiting for your response';
     data.btn = ctrl[temp];
 	client.messages
 	      .create({
-	        body: `${temp} is set`,
+	        body: msg,
 	        from: 'whatsapp:+14155238886',
 	        to: 'whatsapp:+918930154773'
 	      })
