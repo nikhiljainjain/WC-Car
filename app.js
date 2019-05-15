@@ -43,6 +43,7 @@ app.get('/', (req, res, next)=>{
 
 //router for whatsapp messages
 app.post('/back',(req,res)=>{
+    console.log(req.body);
     const temp = req.body.Body;
     data.btn = ctrl[temp];
 	client.messages
