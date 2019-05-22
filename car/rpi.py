@@ -7,10 +7,10 @@ pin_x = 17
 pin_y = 22
 pin_z = 23
 pin_w = 24
-sec = 5 #time(seconds) for moving in particular direction
+sec = 1 #time(seconds) for moving in particular direction
 
 head = {
-        'Host': 'www.somedomain.com',
+        'Host': 'www.domain.com',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.5',
@@ -24,11 +24,11 @@ head = {
 
 
 def send():
-    req = requests.post("192.168.1.1/rpi/",headers=head)
+    req = requests.post("http://www.yourdoamin.com/rpi/",headers=head)
     content = req.content
     json_data = ast.literal_eval(content.decode("utf-8"))
     direction = json_data['btn']
-    print(b)
+    print(direction)
     return direction
 
 
@@ -40,52 +40,41 @@ def init():
     GPIO.setup(pin_z, GPIO.OUT)
     GPIO.setup(pin_w, GPIO.OUT)
 
-def reverse(sec):
- init()
+def reverse():
  GPIO.output(pin_x, True)
  GPIO.output(pin_y, False)
- GPIO.output(pin_z, True) 
+ GPIO.output(pin_z, True)
  GPIO.output(pin_w, False)
- sleep(sec)
- GPIO.cleanup()
 
-def forward(sec):
- init()
+def forward():
  GPIO.output(17, False)
  GPIO.output(22, True)
- GPIO.output(23, False) 
+ GPIO.output(23, False)
  GPIO.output(24, True)
- sleep(sec)
- GPIO.cleanup()
 
-def left(sec):
- init()
+def left():
  GPIO.output(pin_x, True)
  GPIO.output(pin_y, False)
- GPIO.output(pin_z, False) 
+ GPIO.output(pin_z, False)
  GPIO.output(pin_w, True)
- sleep(sec)
- GPIO.cleanup()
 
-def right(sec):
- init()
+def right():
  GPIO.output(17, False)
  GPIO.output(22, True)
- GPIO.output(23, True) 
+ GPIO.output(23, True)
  GPIO.output(24, False)
- sleep(sec)
- GPIO.cleanup()
 
-
+init()
 while (True):
     do_x = send()
     if (do_x == 2):
-        forward(sec)
+        forward()
     elif (do_x == 8):
-        reverse(sec)
+        reverse()
     elif (do_x == 4):
-        left(sec)
+        left()
     elif (do_x == 6):
-        right(sec)
-    sleep(sec)
-    
+        right()
+    elif (do_x == 5):
+        sleep(5)
+    sleep(4)
